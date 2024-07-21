@@ -19,9 +19,11 @@ from django.urls import include, path, re_path
 
 from startups import urls as startup_urls
 from blogs import urls as blog_urls
+from .views import redirect_root
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    re_path(r'^$', redirect_root),
     re_path(r'^', include(startup_urls)),
     re_path(r'^blog/', include(blog_urls)),
 ]
