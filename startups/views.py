@@ -4,7 +4,7 @@ from .models import Startup, Tag
 
 
 def tag_list(request):
-    tag_list = Tag.objects.all()
+    tag_list = Tag._default_manager.all()
     return render(
             request,
             'startups/tag_list.html',
@@ -19,7 +19,7 @@ def tag_detail(request, slug):
             { 'tag': tag })
 
 def startups_list(request):
-    startup_list = Startup.objects.all()
+    startup_list = Startup._default_manager.all()
     return render(
             request,
             'startups/startup_list.html',
